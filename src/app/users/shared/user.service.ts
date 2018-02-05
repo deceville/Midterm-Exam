@@ -27,4 +27,28 @@ export class UserService {
 	return this.user
 	}
 
+	createUser(user: User): void  {
+	this.users.push(user)
+	 .catch(error => this.handleError(error))
+	}
+	// Update an existing user
+	updateUser(key: string, value: any): void {
+	this.users.update(key, value)
+	 .catch(error => this.handleError(error))
+	}
+	// Deletes a single user
+	deleteUser(key: string): void {
+	 this.users.remove(key)
+	   .catch(error => this.handleError(error))
+	}
+	// Deletes the entire list of users
+	deleteAll(): void {
+	 this.users.remove()
+	   .catch(error => this.handleError(error))
+	}
+	// Default error handling for all actions
+	private handleError(error) {
+	console.log(error)
+	}
+
 }
