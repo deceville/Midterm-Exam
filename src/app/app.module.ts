@@ -25,10 +25,16 @@ import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 export const firebaseConfig = environment.firebaseConfig;
 import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { UsersListComponent } from './users/users-list/users-list.component';
+import { UserDetailComponent } from './users/user-detail/user-detail.component';
+import { UserFormComponent } from './users/user-form/user-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    UsersListComponent,
+    UserDetailComponent,
+    UserFormComponent,
   ],
   imports: [
     BrowserModule,
