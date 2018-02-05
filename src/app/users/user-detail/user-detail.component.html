@@ -1,3 +1,7 @@
-<p>
-  user-detail works!
-</p>
+<h5>{{ user.firstname || 'missing user' }}</h5>
+Active: {{ user.active }}
+{{ user.timeStamp | date: 'medium' }}
+<span (click)='updateTimeStamp()'>Update Timestamp</span>
+<span *ngIf='user.active' (click)='updateActive(false)'>Mark Complete</span>
+<span *ngIf='!user.active' (click)='updateActive(true)'>Mark Active</span>
+<span (click)='deleteUser()'>Delete</span>

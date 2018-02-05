@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserDetailComponent implements OnInit {
 
-  constructor() { }
+    @Input() user: User;
 
-  ngOnInit() {
-  }
+	constructor(private userSvc: UserService) { }
+
+	updateTimeStamp() {
+	let date = new Date().getTime()
+	this.userSvc.updateUser(this.user.$key, { timeStamp: date })
+	}
+	updateActive(value: boolean) {
+	this.userSvc.updateUser(this.user.$key, { active: value })
+	}
+	deleteUser() {
+	this.userSvc.deleteUser(this.user.$key)
+	}
 
 }
