@@ -1,3 +1,4 @@
-<p>
-  users-list works!
-</p>
+<div *ngFor="let user of users | async" >
+  <user-detail [user]='user'></user-detail>
+</div>
+<button (click)='deleteUsers()'>Delete Entire List</button>

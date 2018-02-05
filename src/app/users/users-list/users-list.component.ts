@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersListComponent implements OnInit {
 
-  constructor() { }
+    public users: FirebaseListObservable<User[]>;
 
-  ngOnInit() {
-  }
+	constructor(private userSvc: UserService) { }
+	ngOnInit() {
+	this.users = this.userSvc.getUsersList({limitToLast: 5})
+	}
+	deleteUsers() {
+	this.userSvc.deleteAll()
+	}
 
 }

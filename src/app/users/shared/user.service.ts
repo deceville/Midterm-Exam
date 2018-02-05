@@ -21,9 +21,9 @@ export class UserService {
 	return this.users
 	}
 	// Return a single observable user
-	getItem(key: string): FirebaseObjectObservable<User> {
-	const itemPath =  `${this.basePath}/${key}`;
-	this.user = this.db.object(itemPath)
+	getUser(key: string): FirebaseObjectObservable<User> {
+	const userPath =  `${this.basePath}/${key}`;
+	this.user = this.db.object(userPath)
 	return this.user
 	}
 
