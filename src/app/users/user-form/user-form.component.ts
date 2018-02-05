@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserFormComponent implements OnInit {
 
-  constructor() { }
+    user: User = new User();
 
-  ngOnInit() {
-  }
+	constructor(private userSvc: UserService) { }
+	createUser() {
+	this.userSvc.createUser(this.user)
+	this.user = new User() // reset user
+	}
 
 }

@@ -1,3 +1,14 @@
-<p>
-  user-form works!
-</p>
+<input placeholder="User Namr" class="form-control"
+[(ngModel)]="user.firstname"
+required minlength="2" maxlength="23"
+#firstname='ngModel' autofocus>
+<div *ngIf="firstname.dirty">
+  <span *ngIf='firstname.errors; then errors else valid'>template renders here...</span>
+</div>
+<button class="btn btn-primary" (click)='createItem()' [disabled]="!firstname.valid">Create</button>
+<ng-template #valid>
+<p class="text-success">looks good!</p>
+</ng-template>
+<ng-template #errors>
+<p class="text-danger">form contains errors!</p>
+</ng-template>
